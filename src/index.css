@@ -1,0 +1,202 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    /* Warm cream background */
+    --background: 40 33% 96%;
+    --foreground: 0 43% 22%;
+
+    /* Card surfaces - soft beige */
+    --card: 38 40% 94%;
+    --card-foreground: 0 43% 22%;
+
+    --popover: 38 40% 94%;
+    --popover-foreground: 0 43% 22%;
+
+    /* Primary - Saffron Orange */
+    --primary: 24 95% 53%;
+    --primary-foreground: 40 33% 96%;
+
+    /* Secondary - Sage Mint */
+    --secondary: 158 35% 45%;
+    --secondary-foreground: 40 33% 96%;
+
+    /* Muted - Warm Sand */
+    --muted: 35 30% 88%;
+    --muted-foreground: 0 30% 40%;
+
+    /* Accent - Coral Peach */
+    --accent: 14 90% 65%;
+    --accent-foreground: 0 43% 22%;
+
+    /* Destructive - Warm Red */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 40 33% 96%;
+
+    /* Success - Forest Green */
+    --success: 142 55% 40%;
+    --success-foreground: 40 33% 96%;
+
+    /* Warning - Golden Yellow */
+    --warning: 45 93% 55%;
+    --warning-foreground: 0 43% 22%;
+
+    --border: 30 25% 82%;
+    --input: 30 25% 82%;
+    --ring: 24 95% 53%;
+
+    --radius: 1rem;
+
+    /* Custom shadows - warm tones */
+    --shadow-sm: 0 2px 8px hsl(30 30% 70% / 0.3);
+    --shadow-md: 0 4px 16px hsl(30 30% 60% / 0.25);
+    --shadow-lg: 0 8px 32px hsl(30 30% 50% / 0.2);
+    --shadow-xl: 0 16px 48px hsl(30 30% 45% / 0.2);
+
+    --sidebar-background: 38 40% 94%;
+    --sidebar-foreground: 0 43% 22%;
+    --sidebar-primary: 24 95% 53%;
+    --sidebar-primary-foreground: 40 33% 96%;
+    --sidebar-accent: 35 30% 88%;
+    --sidebar-accent-foreground: 0 43% 22%;
+    --sidebar-border: 30 25% 82%;
+    --sidebar-ring: 24 95% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  .container-wrapper {
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .card-elevated {
+    @apply bg-card rounded-2xl p-6 shadow-md transition-all duration-300;
+    box-shadow: var(--shadow-md);
+  }
+
+  .card-elevated:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground px-6 py-3 rounded-xl font-semibold transition-all duration-200;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .btn-primary:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0);
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground px-6 py-3 rounded-xl font-semibold transition-all duration-200;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .btn-accent {
+    @apply bg-accent text-accent-foreground px-6 py-3 rounded-xl font-semibold transition-all duration-200;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl border-2 border-border bg-card text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none transition-colors duration-200;
+  }
+
+  .score-meter {
+    @apply h-4 rounded-full bg-muted overflow-hidden;
+  }
+
+  .score-fill {
+    @apply h-full rounded-full transition-all duration-500 ease-out;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-bounce-gentle {
+    animation: bounce-gentle 2s infinite;
+  }
+
+  @keyframes bounce-gentle {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  .animate-pulse-soft {
+    animation: pulse-soft 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse-soft {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-12px);
+    }
+  }
+
+  .animate-wiggle {
+    animation: wiggle 0.5s ease-in-out;
+  }
+
+  @keyframes wiggle {
+    0%, 100% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(-3deg);
+    }
+    75% {
+      transform: rotate(3deg);
+    }
+  }
+}
